@@ -1316,6 +1316,79 @@ p:last-child { margin-bottom: 0; }
 ::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
 
+/* --- Mobile Fixes (QA) --- */
+@media (max-width: 500px) {
+  /* Stack name fields in invest form */
+  #contact-form > div:first-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Ensure calc result rows don't overflow */
+  .calc-result-item {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .calc-result-value {
+    font-size: 1.15rem;
+  }
+
+  .calc-result-item--highlight .calc-result-value {
+    font-size: 1.35rem;
+  }
+
+  /* Ensure table scrolls horizontally */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Fix announcement bar wrapping */
+  .announcement-bar {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+  }
+
+  /* Tighter card padding on small screens */
+  .card {
+    padding: 24px;
+  }
+
+  .fund-card__header {
+    padding: 20px 24px;
+  }
+
+  .fund-card__body {
+    padding: 20px 24px;
+  }
+
+  .fund-card__footer {
+    padding: 0 24px 20px;
+  }
+
+  .calc-form,
+  .calc-results {
+    padding: 24px;
+  }
+
+  /* Basin card stats stack */
+  .basin-card__stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* CTA banner tighter */
+  .cta-banner {
+    padding: 32px 20px;
+  }
+
+  /* Two-col reverse fix */
+  .two-col--reverse > * {
+    direction: ltr;
+  }
+}
+
 /* --- Print --- */
 @media print {
   .nav, .footer, .announcement-bar { display: none; }
