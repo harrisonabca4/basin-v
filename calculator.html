@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Tax Calculator | Model Your Oil &amp; Gas Tax Savings — Basin Ventures</title>
+  <meta name="description" content="Calculate potential tax savings from oil and gas investing. Model IDC deductions, TDC bonus depreciation, and depletion allowance based on your income and investment amount.">
+  <meta property="og:title" content="Oil & Gas Investment Tax Calculator | Basin Ventures">
+  <meta property="og:description" content="Model your potential Year 1 tax savings from direct oil and gas investment. Free calculator for accredited investors.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://www.basinventures.com/calculator">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon">BV</div>
+        Basin Ventures
+      </a>
+      <div class="nav__links">
+        <a href="about.html" class="nav__link">About</a>
+        <a href="non-operating-working-interest.html" class="nav__link">NOWI</a>
+        <a href="projects.html" class="nav__link">Projects</a>
+        <a href="resources.html" class="nav__link">Resources</a>
+        <a href="calculator.html" class="nav__link active">Calculator</a>
+        <a href="invest.html" class="btn btn--primary btn--sm nav__cta desktop-only">Invest Now</a>
+      </div>
+      <button class="nav__mobile-toggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+    <div class="nav__mobile-menu">
+      <a href="about.html" class="nav__link">About</a>
+      <a href="non-operating-working-interest.html" class="nav__link">NOWI</a>
+      <a href="projects.html" class="nav__link">Projects</a>
+      <a href="resources.html" class="nav__link">Resources</a>
+      <a href="calculator.html" class="nav__link active">Calculator</a>
+      <a href="invest.html" class="btn btn--primary">Invest Now</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero--sm">
+    <div class="hero__bg-pattern"></div>
+    <div class="container">
+      <div class="hero__content">
+        <span class="section-label">Tax Calculator</span>
+        <h1>Model Your <span>Tax Savings</span></h1>
+        <p class="hero__text">Estimate your potential Year 1 tax benefit from a direct oil and gas investment through Basin Ventures. Adjust your income and investment amount to see projected IDC deductions, bonus depreciation, and net tax savings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="section">
+    <div class="container">
+      <div class="calc-container" id="calc-form">
+        <!-- Input Side -->
+        <div class="calc-form fade-in">
+          <h3 style="margin-bottom: 8px;">Your Investment Details</h3>
+          <p style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 32px;">Adjust the inputs below to model your potential tax benefit.</p>
+
+          <div class="form-group">
+            <label class="form-label">Filing Status</label>
+            <select id="calc-filing" class="form-select">
+              <option value="single">Single</option>
+              <option value="married" selected>Married Filing Jointly</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <label class="form-label">Annual Gross Income</label>
+              <span class="range-value" id="income-display">$500,000</span>
+            </div>
+            <input type="range" id="calc-income-range" class="range-slider" min="100000" max="5000000" step="25000" value="500000">
+            <input type="hidden" id="calc-income" value="500000">
+            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-light);">
+              <span>$100K</span>
+              <span>$5M</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <label class="form-label">Investment Amount</label>
+              <span class="range-value" id="invest-display">$250,000</span>
+            </div>
+            <input type="range" id="calc-investment-range" class="range-slider" min="100000" max="2000000" step="25000" value="250000">
+            <input type="hidden" id="calc-investment" value="250000">
+            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-light);">
+              <span>$100K</span>
+              <span>$2M</span>
+            </div>
+          </div>
+
+          <div style="background: var(--off-white); border-radius: var(--radius); padding: 20px; margin-top: 24px;">
+            <h4 style="font-size: 0.85rem; margin-bottom: 12px;">How This Works</h4>
+            <ul style="display: flex; flex-direction: column; gap: 8px;">
+              <li style="display: flex; gap: 8px; font-size: 0.825rem; color: var(--text-secondary);">
+                <span style="color: var(--gold); font-weight: 700; flex-shrink: 0;">1.</span>
+                <span><strong>IDCs (87%)</strong> — Intangible drilling costs are deducted against active ordinary income in Year 1</span>
+              </li>
+              <li style="display: flex; gap: 8px; font-size: 0.825rem; color: var(--text-secondary);">
+                <span style="color: var(--gold); font-weight: 700; flex-shrink: 0;">2.</span>
+                <span><strong>TDCs (13%)</strong> — Tangible drilling costs eligible for 100% bonus depreciation in Year 1</span>
+              </li>
+              <li style="display: flex; gap: 8px; font-size: 0.825rem; color: var(--text-secondary);">
+                <span style="color: var(--gold); font-weight: 700; flex-shrink: 0;">3.</span>
+                <span><strong>Depletion (15%)</strong> — Ongoing: 15% of gross production income is tax-free annually</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Results Side -->
+        <div class="calc-results fade-in">
+          <h3>Estimated Tax Benefit</h3>
+
+          <div class="calc-result-item">
+            <span class="calc-result-label">IDC Deduction (87%)</span>
+            <span class="calc-result-value" id="result-idc">$217,500</span>
+          </div>
+
+          <div class="calc-result-item">
+            <span class="calc-result-label">TDC Bonus Depreciation (13%)</span>
+            <span class="calc-result-value" id="result-tdc">$32,500</span>
+          </div>
+
+          <div class="calc-result-item">
+            <span class="calc-result-label">Total Year 1 Deduction</span>
+            <span class="calc-result-value" id="result-total-deduction">$250,000</span>
+          </div>
+
+          <div style="height: 1px; background: rgba(255,255,255,0.15); margin: 8px 0;"></div>
+
+          <div class="calc-result-item">
+            <span class="calc-result-label">Marginal Tax Rate</span>
+            <span class="calc-result-value" id="result-marginal-rate">35%</span>
+          </div>
+
+          <div class="calc-result-item">
+            <span class="calc-result-label">Federal Tax (Before Investment)</span>
+            <span class="calc-result-value" id="result-tax-before">$131,672</span>
+          </div>
+
+          <div class="calc-result-item">
+            <span class="calc-result-label">Federal Tax (After Investment)</span>
+            <span class="calc-result-value" id="result-tax-after">$46,672</span>
+          </div>
+
+          <div class="calc-result-item calc-result-item--highlight">
+            <span class="calc-result-label" style="color: var(--white); font-weight: 600;">Estimated Year 1 Tax Savings</span>
+            <span class="calc-result-value" id="result-tax-savings" style="font-size: 1.8rem;">$85,000</span>
+          </div>
+
+          <div class="calc-result-item">
+            <span class="calc-result-label">Effective Cost After Tax Benefit</span>
+            <span class="calc-result-value" id="result-effective-cost">$165,000</span>
+          </div>
+
+          <div class="calc-result-item">
+            <span class="calc-result-label">Ongoing Depletion Allowance</span>
+            <span class="calc-result-value" id="result-depletion">$5,625/yr</span>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <a href="invest.html" class="btn btn--primary" style="width: 100%;">Start Investing &rarr;</a>
+          </div>
+
+          <p style="font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-top: 16px; line-height: 1.6;">This calculator provides illustrative estimates only and does not constitute tax advice. Actual results depend on individual tax circumstances, fund structure, and IRS regulations. Consult your CPA and legal counsel before making investment decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tax Benefits Summary -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="text-center fade-in">
+        <span class="section-label">Key Benefits</span>
+        <h2 class="section-title">Why Direct Participation Matters</h2>
+      </div>
+      <div class="grid grid--3" style="margin-top: 40px;">
+        <div class="card fade-in">
+          <h4 class="card__title">Offsets Active Income</h4>
+          <p class="card__text">Under IRC &sect;469(c)(3), working interest deductions offset active ordinary income — including W-2 wages, business income, and professional earnings. This is unavailable through stocks, ETFs, or REITs.</p>
+        </div>
+        <div class="card fade-in">
+          <h4 class="card__title">Year 1 Deductibility</h4>
+          <p class="card__text">Up to 100% of your investment may be deductible in the year it is made through the combination of IDC deductions and TDC bonus depreciation — providing immediate tax relief.</p>
+        </div>
+        <div class="card fade-in">
+          <h4 class="card__title">Ongoing Tax-Free Income</h4>
+          <p class="card__text">The 15% percentage depletion allowance means a portion of your production income is tax-free every year for the life of the asset — regardless of your original cost basis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner fade-in">
+        <h2>Ready to Invest?</h2>
+        <p>Fund IV is currently open with a $100,000 minimum. Start the accredited investor onboarding process.</p>
+        <div class="btn-group">
+          <a href="invest.html" class="btn btn--primary btn--lg">Start Investing</a>
+          <a href="non-operating-working-interest.html" class="btn btn--white btn--lg">Learn About NOWI</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="nav__logo" style="font-size: 1.2rem;">
+            <div class="nav__logo-icon" style="width: 32px; height: 32px; font-size: 0.85rem;">BV</div>
+            Basin Ventures
+          </a>
+          <p class="footer__brand-text">Tax-advantaged oil and gas investment for accredited investors. Headquartered in Southlake, Texas.</p>
+          <p class="footer__brand-text" style="margin-top: 16px;">1209 S White Chapel Blvd, Suite 180<br>Southlake, TX 76092<br><a href="tel:8774274707" class="footer__link" style="display: inline;">877-427-4707</a></p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Investing</h4>
+          <a href="non-operating-working-interest.html" class="footer__link">NOWI Overview</a>
+          <a href="projects.html" class="footer__link">Our Projects</a>
+          <a href="calculator.html" class="footer__link">Tax Calculator</a>
+          <a href="invest.html" class="footer__link">Start Investing</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <a href="about.html" class="footer__link">About Us</a>
+          <a href="about.html#team" class="footer__link">Leadership</a>
+          <a href="resources.html" class="footer__link">Resources</a>
+          <a href="invest.html#contact" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Connect</h4>
+          <a href="https://www.linkedin.com/company/basin-ventures" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/BasinVentures" class="footer__link" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/basinventures" class="footer__link" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://x.com/BasinVentures" class="footer__link" target="_blank" rel="noopener">X (Twitter)</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Basin Ventures. All rights reserved.</span>
+        <span>Accredited Investors Only &middot; Regulation D</span>
+      </div>
+      <div class="footer__legal">
+        <p>This calculator provides illustrative estimates only and does not constitute tax, legal, or financial advice. Actual tax benefits depend on individual circumstances. Basin Ventures investment opportunities are offered to accredited investors only under Regulation D. Past performance is not indicative of future results. Consult your own CPA and legal counsel before making investment decisions.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
