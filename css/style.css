@@ -1168,28 +1168,8 @@ p:last-child { margin-bottom: 0; }
   padding: 10px 24px;
   font-size: 0.8rem;
   font-weight: 600;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: 1001;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* When announcement bar is present, push nav and hero down */
-.announcement-bar + .nav {
-  top: 40px;
-}
-
-.announcement-bar ~ .hero {
-  padding-top: 120px; /* 80px nav + 40px bar */
-}
-
-.announcement-bar ~ .nav .nav__mobile-menu {
-  top: 120px; /* 80px nav + 40px bar */
 }
 
 .announcement-bar a {
@@ -1366,10 +1346,8 @@ p:last-child { margin-bottom: 0; }
 
   /* Fix announcement bar wrapping */
   .announcement-bar {
-    font-size: 0.7rem;
-    padding: 6px 12px;
-    height: auto;
-    min-height: 36px;
+    font-size: 0.75rem;
+    padding: 8px 16px;
   }
 
   /* Tighter card padding on small screens */

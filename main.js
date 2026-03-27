@@ -24,14 +24,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Nav Scroll Effect ---
+  // --- Nav Scroll Effect + Announcement Bar Offset ---
   const nav = document.querySelector('.nav');
+  const bar = document.querySelector('.announcement-bar');
+
   if (nav) {
-    const onScroll = () => {
+    const updateNav = () => {
       nav.classList.toggle('scrolled', window.scrollY > 50);
+
+      // Push fixed nav below the in-flow announcement bar
+      if (bar) {
+        const barBottom = bar.getBoundingClientRect().bottom;
+        nav.style.top = Math.max(0, barBottom) + 'px';
+      }
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+
+    // Set hero/content padding to clear both bar + nav
+    if (bar) {
+      const hero = document.querySelector('.hero');
+      const totalOffset = bar.offsetHeight + nav.offsetHeight;
+      if (hero) hero.style.paddingTop = totalOffset + 'px';
+
+      // Also offset mobile menu
+      const mobileMenu = document.querySelector('.nav__mobile-menu');
+      if (mobileMenu) {
+        const updateMobileMenu = () => {
+          mobileMenu.style.top = (Math.max(0, bar.getBoundingClientRect().bottom) + nav.offsetHeight) + 'px';
+        };
+        window.addEventListener('scroll', updateMobileMenu, { passive: true });
+        updateMobileMenu();
+      }
+    }
+
+    window.addEventListener('scroll', updateNav, { passive: true });
+    window.addEventListener('resize', updateNav, { passive: true });
+    updateNav();
   }
 
   // --- Animated Counters ---
@@ -299,8 +326,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        const bar = document.querySelector('.announcement-bar');
-        const offset = bar ? 130 : 90; // nav + bar + buffer
+        const navEl = document.querySelector('.nav');
+        const offset = navEl ? navEl.offsetHeight + 10 : 90;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
       }
