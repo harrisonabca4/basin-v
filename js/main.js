@@ -291,13 +291,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Smooth scroll for anchor links ---
+  // --- Smooth scroll for anchor links (with fixed header offset) ---
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
-      const target = document.querySelector(link.getAttribute('href'));
+      const href = link.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const bar = document.querySelector('.announcement-bar');
+        const offset = bar ? 130 : 90; // nav + bar + buffer
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
